@@ -1,116 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>For My Nandhu ❤️</title>
+<meta charset="UTF-8" />
+<title>For My Nandhu ❤️</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      width: 350px;
-      animation: pop 1s ease;
-    }
+/* Main card */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  width: 350px;
+  animation: pop 1s ease;
+  z-index: 2;
+}
 
-    h1 {
-      color: #ff4d6d;
-    }
+h1 { color: #ff4d6d; }
+p { font-size: 18px; color: #333; }
 
-    p {
-      font-size: 18px;
-      color: #333;
-    }
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #ff4d6d;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 20px;
-      background: #ff4d6d;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+button:hover {
+  background: #ff1f4b;
+  transform: scale(1.1);
+}
 
-    button:hover {
-      background: #ff1f4b;
-      transform: scale(1.1);
-    }
+/* Floating hearts */
+.heart {
+  position: absolute;
+  color: red;
+  font-size: 24px;
+  animation: float 5s linear infinite;
+}
 
-    .heart {
-      position: absolute;
-      color: red;
-      font-size: 24px;
-      animation: float 5s linear infinite;
-    }
+/* Couple walking */
+.couple {
+  position: absolute;
+  bottom: 40px;
+  left: -100px;
+  font-size: 50px;
+  animation: walk 20s linear infinite;
+}
 
-    @keyframes float {
-      0% { transform: translateY(100vh); opacity: 1; }
-      100% { transform: translateY(-10vh); opacity: 0; }
-    }
+/* Love birds */
+.birds {
+  position: absolute;
+  top: 60px;
+  right: 40px;
+  font-size: 40px;
+  animation: cuddle 2s ease-in-out infinite;
+}
 
-    @keyframes pop {
-      from { transform: scale(0); }
-      to { transform: scale(1); }
-    }
-  </style>
+/* Butterfly */
+.butterfly {
+  position: absolute;
+  font-size: 30px;
+  color: violet;
+  animation: fly 12s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh); opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+@keyframes pop {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+@keyframes walk {
+  0% { left: -100px; }
+  100% { left: 110%; }
+}
+
+@keyframes cuddle {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes fly {
+  0% { left: -10%; top: 20%; }
+  25% { left: 30%; top: 10%; }
+  50% { left: 60%; top: 30%; }
+  75% { left: 80%; top: 15%; }
+  100% { left: 110%; top: 25%; }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="card">
-    <h1>Hi Nandhu ❤️</h1>
-    <p id="message">Click the button for a surprise 💌</p>
-    <button onclick="nextMessage()">Click Me</button>
-  </div>
+<!-- Walking couple -->
+<div class="couple">👫</div>
 
-  <script>
-    const messages = [
-      "ENCH ENDH ESHTAN ARIYO SUNDARINE🌸",
-      "ENCH NI VICHARIKYANELUM KORE KORE ESHTAATA ENTE SOTH AATA✨",
-      "I PROMISE YOU AM A GOOD PARTNER FOR YOU LIFELONG 😘",
-      "Nandhu, you are my favorite notification 💖",
-      "I love you more MORE MORE MORE MORE MORE MORE MORE MORE  🥹❤️",
-      "Forever yours,(ONLY) Devan 💕"
-    ];
+<!-- Love birds -->
+<div class="birds">🐦❤️🐦</div>
 
-    let index = 0;
+<!-- Butterfly -->
+<div class="butterfly">🦋</div>
 
-    function nextMessage() {
-      document.getElementById("message").innerText = messages[index];
-      index = (index + 1) % messages.length;
-      createHeart();
-    }
+<div class="card">
+  <h1>Hi Nandhu ❤️</h1>
+  <p id="message">Click the button for a surprise 💌</p>
+  <button onclick="nextMessage()">Click Me</button>
+</div>
 
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerHTML = "❤️";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = (Math.random() * 30 + 20) + "px";
-      document.body.appendChild(heart);
+<script>
+const messages = [
+  "ENCH ENDH ESHTAN ARIYO SUNDARINE🌸",
+  "ENCH NI VICHARIKYANELUM KORE KORE ESHTAATA ENTE SOTH AATA✨",
+  "I PROMISE YOU AM A GOOD PARTNER FOR YOU LIFELONG 😘",
+  "Nandhu, you are my favorite notification 💖",
+  "I love you more MORE MORE MORE MORE MORE MORE MORE MORE 🥹❤️",
+  "Forever yours,(ONLY) Devan 💕"
+];
 
-      setTimeout(function() {
-        heart.remove();
-      }, 5000);
-    }
-  </script>
+let index = 0;
+
+function nextMessage() {
+  document.getElementById("message").innerText = messages[index];
+  index = (index + 1) % messages.length;
+  createHeart();
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 30 + 20) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(function() {
+    heart.remove();
+  }, 5000);
+}
+</script>
 
 </body>
 </html>
-

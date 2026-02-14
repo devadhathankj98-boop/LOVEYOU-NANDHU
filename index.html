@@ -25,7 +25,7 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   width: 350px;
   animation: pop 1s ease;
-  z-index: 2;
+  z-index: 5;
 }
 
 h1 { color: #ff4d6d; }
@@ -48,6 +48,46 @@ button:hover {
   transform: scale(1.1);
 }
 
+/* Love birds image */
+.birds {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  width: 120px;
+  animation: cuddle 2s ease-in-out infinite;
+  z-index: 2;
+}
+
+/* Butterfly images */
+.butterfly {
+  position: absolute;
+  width: 50px;
+  animation: fly 15s linear infinite;
+  filter: drop-shadow(0 0 10px violet);
+}
+
+/* Different butterfly paths */
+.b1 { top: 20%; animation-duration: 12s; }
+.b2 { top: 40%; animation-duration: 15s; }
+.b3 { top: 60%; animation-duration: 18s; }
+.b4 { top: 30%; animation-duration: 20s; }
+.b5 { top: 50%; animation-duration: 22s; }
+
+@keyframes fly {
+  from { left: -10%; }
+  to { left: 110%; }
+}
+
+@keyframes cuddle {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes pop {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
 /* Floating hearts */
 .heart {
   position: absolute;
@@ -56,72 +96,24 @@ button:hover {
   animation: float 5s linear infinite;
 }
 
-/* Couple walking */
-.couple {
-  position: absolute;
-  bottom: 40px;
-  left: -100px;
-  font-size: 50px;
-  animation: walk 20s linear infinite;
-}
-
-/* Love birds */
-.birds {
-  position: absolute;
-  top: 60px;
-  right: 40px;
-  font-size: 40px;
-  animation: cuddle 2s ease-in-out infinite;
-}
-
-/* Butterfly */
-.butterfly {
-  position: absolute;
-  font-size: 30px;
-  color: violet;
-  animation: fly 12s linear infinite;
-}
-
 @keyframes float {
   0% { transform: translateY(100vh); opacity: 1; }
   100% { transform: translateY(-10vh); opacity: 0; }
-}
-
-@keyframes pop {
-  from { transform: scale(0); }
-  to { transform: scale(1); }
-}
-
-@keyframes walk {
-  0% { left: -100px; }
-  100% { left: 110%; }
-}
-
-@keyframes cuddle {
-  0%,100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-@keyframes fly {
-  0% { left: -10%; top: 20%; }
-  25% { left: 30%; top: 10%; }
-  50% { left: 60%; top: 30%; }
-  75% { left: 80%; top: 15%; }
-  100% { left: 110%; top: 25%; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Walking couple -->
-<div class="couple">👫</div>
+<!-- Many Violet Butterflies -->
+<img src="https://i.imgur.com/4AiXzf8.png" class="butterfly b1">
+<img src="https://i.imgur.com/4AiXzf8.png" class="butterfly b2">
+<img src="https://i.imgur.com/4AiXzf8.png" class="butterfly b3">
+<img src="https://i.imgur.com/4AiXzf8.png" class="butterfly b4">
+<img src="https://i.imgur.com/4AiXzf8.png" class="butterfly b5">
 
-<!-- Love birds -->
-<div class="birds">🐦❤️🐦</div>
-
-<!-- Butterfly -->
-<div class="butterfly">🦋</div>
+<!-- Love Birds Image -->
+<img src="https://i.imgur.com/8Km9tLL.png" class="birds">
 
 <div class="card">
   <h1>Hi Nandhu ❤️</h1>
